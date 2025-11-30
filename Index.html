@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Turtle's Labyrinth</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Turtle's Labyrinth – a quiet fantasy space for stories, games, and strange thought.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0b1d19;
+      --bg-overlay: rgba(11, 29, 25, 0.78);
+      --torch-gold: #c7aa52;
+      --text-main: #eceff1;
+      --text-muted: #c7d6d2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-dark);
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.1)),
+        url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&w=1600");
+      /* ↑ replace this URL later with any torch-lit cave / stone hall image you prefer */
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.2);
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 75%, rgba(199,170,82,0.38), transparent 55%),
+                  radial-gradient(circle at 50% 0%, rgba(38,103,138,0.45), transparent 55%);
+      mix-blend-mode: soft-light;
+      z-index: -1;
+    }
+
+    .hero-inner {
+      max-width: 640px;
+      padding: 2.5rem 2rem;
+      background: linear-gradient(
+        145deg,
+        rgba(11, 29, 25, 0.92),
+        rgba(5, 12, 18, 0.96)
+      );
+      border-radius:
