@@ -4,59 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog Bog | Sanity & Secrets</title>
-  <meta name="description" content="Blog Bog is the personal writing and posts section of Sanity & Secrets." />
+  <meta name="description" content="Blog Bog is the journal and manifesto archive inside Sanity & Secrets." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="site-shell">
     <header class="site-header">
-      <a class="brand" href="index.html">
-        <span class="brand-mark">S&amp;S</span>
-        <span class="brand-text">
-          <strong>Sanity &amp; Secrets</strong>
-          <small>Truths for the people who survived the lie</small>
-        </span>
-      </a>
+      <div class="brand-stack">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">S&amp;S</span>
+          <span class="brand-text">
+            <strong>Sanity &amp; Secrets</strong>
+            <small>archive / system / confession / descent</small>
+          </span>
+        </a>
+        <p class="breadcrumbs">root / archive / blog-bog</p>
+      </div>
       <nav class="site-nav" aria-label="Primary">
         <a href="about.html">About</a>
         <a href="blog.html" aria-current="page">Blog Bog</a>
+        <a href="library.html">My Literary Library</a>
         <a href="paid_tier.html">Support</a>
         <a href="welcome_email.html">Welcome</a>
       </nav>
     </header>
 
-    <main class="content-page blog-index-page">
-      <p class="eyebrow">The writing archive</p>
+    <main class="content-page blog-index-page archive-page">
+      <p class="eyebrow">Journal archive / entry point</p>
       <h1>Blog Bog</h1>
-      <p class="lead">A personal archive of essays, reflections, survival notes, and truth-telling. This page is the easiest place for readers to browse posts, and the easiest place for you to add new ones later.</p>
+      <p class="lead">The Blog Bog is where the personal and the systemic meet: confessions, essays, thought-threads, reflections, and written descents into the structures underneath ordinary life.</p>
 
       <section class="post-list" aria-label="Posts">
         <article class="post-card">
-          <p class="post-meta">10 May 2026 · Opening post</p>
+          <p class="post-meta">10 May 2026 · Manifesto entry</p>
           <h2><a href="posts/first-post.html">Why I Made This</a></h2>
-          <p>This is the more personal beginning: where the site came from, who it’s for, and why I needed to make a place like this.</p>
-          <a class="text-link" href="posts/first-post.html">Read post →</a>
+          <p>A more intimate declaration from Lord G.S.T about building systems, surviving friction, and creating a place that feels less like a site and more like a persistent environment.</p>
+          <a class="text-link" href="posts/first-post.html">Open file →</a>
         </article>
       </section>
 
-      <section class="owner-note">
-        <p class="section-label">Easy posting workflow</p>
-        <h2>How to add a new post later</h2>
+      <section class="owner-note locked-note">
+        <p class="section-label">Owner workflow</p>
+        <h2>How to add a new post</h2>
         <ol>
-          <li>Open <code>posts/post-template.html</code></li>
-          <li>Duplicate it and rename it</li>
-          <li>Edit the title, date, excerpt, and content</li>
-          <li>Add a new entry here on <code>blog.html</code></li>
+          <li>Duplicate <code>posts/post-template.html</code></li>
+          <li>Rename the file clearly</li>
+          <li>Edit the title, date, description, and body</li>
+          <li>Add a new post card here in <code>blog.html</code></li>
         </ol>
-        <p>Visitors can read your posts, but only you or other repository collaborators can change them.</p>
+        <p>The page is public. The publishing power is yours.</p>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Blog Bog — the growing archive inside Sanity &amp; Secrets.</p>
+      <p>Blog Bog — the written layer of the archive.</p>
     </footer>
   </div>
 </body>
