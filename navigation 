@@ -1,0 +1,8 @@
+import { useRouter } from 'expo-router';
+
+const router = useRouter();
+
+// Clicking a navigation link executes this hook path:
+<TouchableOpacity onPress={() => router.push('/vault/library')}>
+  <Text>DESCEND TO THE LIBRARY</Text>
+</TouchableOpacity>
