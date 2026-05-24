@@ -1,91 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Literary Library | Sanity & Secrets</title>
-  <meta name="description" content="My Literary Library is the archive chamber of Sanity & Secrets — a high-end visual library for research files, policy notes, TTRPG systems, and books in progress." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="brand-stack">
-        <a class="brand" href="index.html">
-          <span class="brand-mark">S&amp;S</span>
-          <span class="brand-text">
-            <strong>Sanity &amp; Secrets</strong>
-            <small>archive / system / confession / descent</small>
-          </span>
-        </a>
-        <p class="breadcrumbs">root / archive / literary-library</p>
-      </div>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="about.html">About</a>
-        <a href="blog.html">Blog Bog</a>
-        <a href="library.html" aria-current="page">My Literary Library</a>
-        <a href="paid_tier.html">Support</a>
-        <a href="welcome_email.html">Welcome</a>
-      </nav>
-    </header>
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity } from 'react-native';
+import { useColors } from '@/hooks/useColors';
+import { SymbolView } from 'expo-symbols';
 
-    <main class="content-page archive-page library-page">
-      <p class="eyebrow">Archive chamber / surface layer intact</p>
-      <h1>My Literary Library</h1>
-      <p class="lead">A high-end archive for research, worldbuilding, policies, systems, and books in progress. It should feel less like a shop and more like a locked writing room where the files are arranged with intent.</p>
+export default function LiteraryArchive() {
+  const colors = useColors();
+  const [text, setText] = useState('');
+  const [subGenre, setSubGenre] = useState('BLACK_METAL');
 
-      <section class="library-grid" aria-label="Library categories">
-        <article class="library-card locked-card">
-          <p class="section-label">Shelf 01</p>
-          <h2>Research Files</h2>
-          <p>Historical references, hidden-layer notes, thematic dossiers, and structured fragments of ongoing investigations.</p>
-          <span class="locked-state">Locked / catalogued</span>
-        </article>
-        <article class="library-card locked-card">
-          <p class="section-label">Shelf 02</p>
-          <h2>TTRPG Systems</h2>
-          <p>Campaign design, mechanics, setting frameworks, lore fragments, and the architecture of playable worlds.</p>
-          <span class="locked-state">Locked / catalogued</span>
-        </article>
-        <article class="library-card locked-card">
-          <p class="section-label">Shelf 03</p>
-          <h2>Government Policies</h2>
-          <p>Policy documents, interpreted notes, public texts under scrutiny, and the systems language that quietly shapes lives.</p>
-          <span class="locked-state">Locked / catalogued</span>
-        </article>
-        <article class="library-card locked-card">
-          <p class="section-label">Shelf 04</p>
-          <h2>Books in Progress</h2>
-          <p>Manuscripts, development notes, unfinished chapters, concept structures, and intellectual skeletons waiting to harden.</p>
-          <span class="locked-state">Locked / catalogued</span>
-        </article>
-        <article class="library-card locked-card">
-          <p class="section-label">Shelf 05</p>
-          <h2>System Notes</h2>
-          <p>Fragments on persistent environments, narrative engines, interface philosophy, and the hidden layers of the web.</p>
-          <span class="locked-state">Locked / catalogued</span>
-        </article>
-        <article class="library-card locked-card locked-card-deep">
-          <p class="section-label">Shelf 06</p>
-          <h2>Restricted Archive</h2>
-          <p>Reserved for deeper files, harder material, and the parts of the chamber not yet ready to be opened in public.</p>
-          <span class="locked-state">Sealed / no public access</span>
-        </article>
-      </section>
+  const generateLyrics = () => {
+    const riffs = {
+      BLACK_METAL: "Grim winter shadows devour the light...\nFrost-bitten runes bleed into eternal night.",
+      DEATH_METAL: "Decaying foundations fall into dust...\nFlesh integrated with mechanical rust.",
+      DOOM_METAL: "The clock strikes low, the ether creeps...\nUnder cold stone towers, the ancient one sleeps."
+    };
+    setText(prev => prev + "\n\n" + (riffs[subGenre as keyof typeof riffs] || ""));
+  };
 
-      <section class="owner-note locked-note">
-        <p class="section-label">Owner use</p>
-        <h2>How this page works at launch</h2>
-        <p>This first version is a visual archive only. The shelves establish the structure and tone. Files and downloads can be added later once the collection is ready to open.</p>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>My Literary Library — a fantasy writing room crossed with a high-end archive chamber.</p>
-    </footer>
-  </div>
-</body>
-</html>
+  return (
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
+      <View style={[styles.header, { borderBottomColor: colors.border }]}>
+        <SymbolView name="music.note.list" size={20} tintColor={colors.primary} />
+        <Text style={[styles.title, { color: colors.primary }]}>LITERARY & METAL FORGE</Text>
+      </View>
+      <View style={styles.genreRow}>
+        {['BLACK_METAL', 'DEATH_METAL', 'DOOM_METAL'].map(g => (
+          <TouchableOpacity key={g} onPress={() => setSubGenre(g)} style={[styles.tag, { backgroundColor: subGenre === g ? colors.primary : 'transparent' }]}>
+            <Text style={{ color: subGenre === g ? '#000' : colors.primary, fontSize: 10 }}>{g}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      <TextInput style={[styles.input, { borderColor: colors.border, color: colors.foreground }]} multiline value={text} onChangeText={setText} placeholder="Unleash your text or summon lyrics..." placeholderTextColor={colors.mutedForeground} />
+      <TouchableOpacity style={[styles.burnBtn, { backgroundColor: colors.primary }]} onPress={generateLyrics}>
+        <Text style={styles.burnText}>SUMMON LYRICS</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 16 },
+  header: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingBottom: 12, borderBottomWidth: 1 },
+  title: { fontSize: 14, fontWeight: '900', fontFamily: 'Courier' },
+  genreRow: { flexDirection: 'row', gap: 10, marginVertical: 10 },
+  tag: { borderWidth: 1, borderColor: '#00ff00', padding: 6, borderRadius: 2 },
+  input: { flex: 1, borderWidth: 1, padding: 15, textAlignVertical: 'top', fontFamily: 'Courier', marginVertical: 10 },
+  burnBtn: { padding: 15, alignItems: 'center', borderRadius: 2 },
+  burnText: { color: '#000', fontWeight: 'bold', fontFamily: 'Courier' }
+});
