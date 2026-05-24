@@ -1,0 +1,3 @@
+const triggerHelpfulHands = () => {
+  alert("'She chose down!' The Hands lock into place. You are descending deeper into the Oubliette.");
+};
