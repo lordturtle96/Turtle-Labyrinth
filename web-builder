@@ -1,0 +1,41 @@
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { useColors } from '@/hooks/useColors';
+import { SymbolView } from 'expo-symbols';
+
+export default function WebForge() {
+  const colors = useColors();
+  const [layout, setLayout] = useState<string[]>([]);
+
+  return (
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
+      <View style={[styles.header, { borderBottomColor: colors.border }]}>
+        <SymbolView name="hammer.fill" size={20} tintColor={colors.primary} />
+        <Text style={[styles.title, { color: colors.primary }]}>WEB FORGE [SITE BUILDER]</Text>
+      </View>
+      <ScrollView style={styles.workspace}>
+        {layout.map((component, idx) => (
+          <View key={idx} style={[styles.previewComponent, { borderColor: colors.primary }]}>
+            <Text style={{ color: colors.foreground }}>[Rendered: {component}]</Text>
+          </View>
+        ))}
+      </ScrollView>
+      <View style={styles.dock}>
+        {['Header', 'Text Section', 'Gallery', 'Footer'].map(item => (
+          <TouchableOpacity key={item} style={[styles.btn, { borderColor: colors.border }]} onPress={() => setLayout([...layout, item])}>
+            <Text style={{ color: colors.primary, fontSize: 10 }}>+ {item}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+    </View>
+  );
+}
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 16 },
+  header: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingBottom: 12, borderBottomWidth: 1 },
+  title: { fontSize: 14, fontWeight: '900', fontFamily: 'Courier' },
+  workspace: { flex: 1, marginTop: 20 },
+  previewComponent: { borderWidth: 1, borderStyle: 'dashed', padding: 15, marginBottom: 10, borderRadius: 4 },
+  dock: { flexDirection: 'row', justifyContent: 'space-around', paddingVertical: 10 },
+  btn: { borderWidth: 1, padding: 8, borderRadius: 2 }
+});
