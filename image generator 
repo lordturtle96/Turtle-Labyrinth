@@ -1,1 +1,12 @@
-delete 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Removed stray file</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+</head>
+<body>
+  <p>This file was intentionally cleared during repository cleanup.</p>
+</body>
+</html>

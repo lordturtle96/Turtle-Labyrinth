@@ -6,12 +6,16 @@ Static website for **Sanity & Secrets**.
 - `index.html` — premium homepage
 - `about.html` — author and project identity page
 - `blog.html` — Blog Bog journal archive
-- `library.html` — My Literary Library visual archive chamber
+- `library.html` — My Literary Library page
 - `posts/first-post.html` — opening manifesto/journal entry
 - `posts/post-template.html` — duplicate this when creating a new post
 - `paid_tier.html` — support page
 - `welcome_email.html` — archive welcome page
 - `styles.css` — shared site styling
+
+## Legacy compatibility
+- `Index.html` redirects to `index.html`
+- `first_post.html` redirects to `posts/first-post.html`
 
 ## How to add a post
 1. Copy `posts/post-template.html`
@@ -19,8 +23,5 @@ Static website for **Sanity & Secrets**.
 3. Edit the title, date, description, and body
 4. Add a link to the new post in `blog.html`
 
-## Library direction
-`library.html` currently acts as a visual archive with locked category shelves. Files, downloads, or linked resources can be added later.
-
 ## Deployment
-This repository is suitable for GitHub Pages hosting.
+This repository is suitable for GitHub Pages hosting as a static site.

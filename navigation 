@@ -1,8 +1,12 @@
-import { useRouter } from 'expo-router';
-
-const router = useRouter();
-
-// Clicking a navigation link executes this hook path:
-<TouchableOpacity onPress={() => router.push('/vault/library')}>
-  <Text>DESCEND TO THE LIBRARY</Text>
-</TouchableOpacity>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Removed stray file</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+</head>
+<body>
+  <p>This file was intentionally cleared during repository cleanup.</p>
+</body>
+</html>
