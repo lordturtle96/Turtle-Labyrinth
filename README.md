@@ -14,7 +14,6 @@ Static website for **Sanity & Secrets**.
 - `styles.css` — shared site styling
 
 ## Legacy compatibility
-- `Index.html` redirects to `index.html`
 - `first_post.html` redirects to `posts/first-post.html`
 
 ## How to add a post
